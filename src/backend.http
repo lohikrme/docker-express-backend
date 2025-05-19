@@ -1,0 +1,31 @@
+### starting page
+GET {{$$dotenv BACKEND_URL}}
+
+### get all parrots
+GET {{$dotenv BACKEND_URL}}/api/parrots
+
+### get parrot by id
+GET {{$dotenv BACKEND_URL}}/api/parrots/1
+
+### update parrot by id
+PUT {{$dotenv BACKEND_URL}}/api/parrots/1
+Content-Type: application/json
+{
+    "name": "Höyhentyyny",
+    "species": "Varpunen",
+    "age": 21
+}
+
+### add new parrot 
+POST {{$dotenv BACKEND_URL}}/api/parrots
+Content-Type: application/json 
+{
+    "species": "blue-macaw",
+    "name": "Joe Biden",
+    "age": 85,
+    "illness": "alzheimer",
+    "favorite_food": "rasberry"
+}
+
+### delete parrot
+DELETE {{$dotenv BACKEND_URL}}/api/parrots/2

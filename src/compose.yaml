@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: parrots_db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: P0llyWantsCracker
+      MYSQL_DATABASE: parrots_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: Kraak12345
+    # x:y means that x redirects into 3306 which is mysql standard
+    ports:
+      - "3333:3306"
+    volumes:
+      - parrots_db_data:/var/lib/mysql
+      - ./db/database.sql:/docker-entrypoint-initdb.d/database.sql
+
+  api:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    container_name: parrots_api_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file: "backend.env"
+    working_dir: /usr/src
+    command: ["npm", "run", "start"]
+
+volumes:
+  parrots_db_data:
