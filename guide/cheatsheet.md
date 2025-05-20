@@ -37,7 +37,7 @@
 | `docker network ls`  | list all networks   |
 | `docker network inspect NETWORK`  | show detailed information about a network  |
 | `docker network rm NETWORK`  | delete a Docker network  |
-| `docker run -d --network NETWORK --name CONTAINER IMAGE` | create a new container from IMAGE and assign it a name and a network  |
+| `docker run -d --network NETWORK --name CONTAINER IMAGE` | create a new container from IMAGE, assign it a name and a network, and start in the background  |
 
 `NETWORK` is a network's name.
 
@@ -51,3 +51,15 @@
 | `docker volume rm VOLUME`  | delete a volume  |
 
 `VOLUME` is a volume's name.
+
+## Docker Compose
+
+| **Command**               | **Action**                                |
+| ---                       | ---                                       |
+| `docker compose up` | build, (re)create, start, and attach to all containers of the service  |
+| `docker compose up -d` | as above, but start in the background  |
+| `docker compose start` | start existing containers  |
+| `docker compose stop` | stop running containers (when running in the background)  |
+| `docker compose ps -a` | list all containers  |
+| `docker compose rm` | remove stopped containers    |
+| `docker compose down` | stop containers, remove containers and networks   |
