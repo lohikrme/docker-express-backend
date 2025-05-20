@@ -2,11 +2,7 @@ services:
   db:
     image: mysql:latest
     container_name: parrots_db_container
-    environment:
-      MYSQL_ROOT_PASSWORD: P0llyWantsCracker
-      MYSQL_DATABASE: parrots_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: Kraak12345
+    env_file: "backend.env"
     # x:y means that x redirects into 3306 which is mysql standard
     ports:
       - "3333:3306"
